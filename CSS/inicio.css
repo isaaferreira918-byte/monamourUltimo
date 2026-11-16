@@ -1,0 +1,365 @@
+/* PORTADA */
+.hero {
+    min-height: clamp(590px, 78vh, 780px);
+    padding: 6rem clamp(1.25rem, 6vw, 5rem) 2rem;
+    background:
+        radial-gradient(ellipse at 82% 14%, rgba(255, 250, 239, 0.9) 0%, transparent 32%),
+        radial-gradient(ellipse at 5% 92%, rgba(132, 66, 94, 0.2) 0%, transparent 38%),
+        radial-gradient(ellipse at 72% 86%, rgba(255, 255, 255, 0.46) 0%, transparent 34%),
+        linear-gradient(122deg, #fbf3ed 0%, #f2dce1 34%, #dfc0cf 68%, #eee0e5 100%);
+    color: #30242a;
+}
+
+.hero::after {
+    display: none;
+}
+
+.hero-brand {
+    position: absolute;
+    z-index: 3;
+    top: 1.15rem;
+    left: 50%;
+    color: #000;
+    font-family: "Bodoni 72", Didot, "Bodoni MT", "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 500;
+    letter-spacing: 0.045em;
+    line-height: 1;
+    text-decoration: none;
+    text-shadow:
+        0 1px 0 #333,
+        0 3px 5px rgba(0, 0, 0, 0.25);
+    transform: translateX(-50%);
+    perspective: 500px;
+}
+
+.hero-brand-face {
+    display: block;
+    backface-visibility: hidden;
+    animation: monamour-spin 5s ease-in-out infinite;
+    color: #000;
+}
+
+.hero-brand-back {
+    position: absolute;
+    inset: 0;
+    animation-name: monamour-spin-back;
+}
+
+@keyframes monamour-spin-back {
+    from { transform: rotateY(180deg); }
+    to { transform: rotateY(540deg); }
+}
+
+@keyframes monamour-spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.hero-carousel {
+    position: relative;
+    width: min(100%, 1420px);
+    margin: auto;
+    padding: 0;
+    border-top: 0;
+}
+
+.hero-slides {
+    position: relative;
+    inset: auto;
+    min-height: clamp(420px, 62vh, 570px);
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    flex: initial;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    align-items: center;
+    gap: clamp(2rem, 7vw, 7rem);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+.hero-slide.is-active {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+}
+
+.hero-product {
+    height: clamp(380px, 55vh, 520px);
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 16px 38px rgba(75, 43, 52, 0.12);
+}
+
+.hero-product img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-content {
+    max-width: 560px;
+    padding: 1rem 0 4rem;
+    text-align: left;
+}
+
+.hero-content .hero-eyebrow {
+    margin: 0 0 0.65rem;
+    color: #8d5363;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-shadow: none;
+}
+
+.hero-content .hero-offer {
+    margin: 0 0 0.55rem;
+    color: #9c3d57;
+    font-size: clamp(2.4rem, 5vw, 4.7rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    text-shadow: none;
+}
+
+.hero-content h1,
+.hero-content h2 {
+    margin: 0;
+    color: #30242a;
+    font-family: Arial, sans-serif;
+    font-size: clamp(2rem, 3.8vw, 3.7rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    text-shadow: none;
+}
+
+.hero-content .hero-description,
+.hero-content .hero-price {
+    margin: 1rem 0 1.6rem;
+    color: #59464c;
+    font-size: 1.1rem;
+    text-shadow: none;
+}
+
+.hero-price s {
+    margin-right: 0.55rem;
+    color: #826f74;
+}
+
+.hero-price strong {
+    color: #30242a;
+    font-size: 1.35rem;
+}
+
+.hero-cta {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    border-radius: 5px;
+    background: #30242a;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+    background: #704451;
+    transform: translateY(-2px);
+}
+
+.hero-controls {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.hero-arrow,
+.hero-dot {
+    border: 0;
+    cursor: pointer;
+}
+
+.hero-arrow {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(48, 36, 42, 0.22);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    color: #30242a;
+    font-size: 1.7rem;
+    line-height: 1;
+}
+
+.hero-dots {
+    display: flex;
+    gap: 0.55rem;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(48, 36, 42, 0.3);
+}
+
+.hero-dot.is-active {
+    background: #704451;
+    transform: scale(1.25);
+}
+
+.hero-arrow:hover,
+.hero-dot:hover {
+    background-color: #fff;
+}
+
+@media (max-width: 760px) {
+    .hero {
+        min-height: 0;
+        padding: 5.5rem 1.25rem 4.5rem;
+    }
+
+    .hero-slides {
+        min-height: 0;
+    }
+
+    .hero-slide {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+    }
+
+    .hero-product {
+        width: 100%;
+        height: clamp(290px, 70vw, 440px);
+    }
+
+    .hero-content {
+        max-width: 560px;
+        padding: 0 0 1.5rem;
+        text-align: center;
+    }
+
+    .hero-content .hero-offer {
+        font-size: clamp(2.4rem, 12vw, 4rem);
+    }
+
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-controls {
+        bottom: -3.4rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-product {
+        height: 280px;
+    }
+
+    .hero-brand {
+        top: 1.25rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-product,
+    .hero-slide .hero-product {
+        border-radius: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-brand-face {
+        animation: none;
+        transform: none;
+    }
+
+    .hero-slide {
+        transition: none;
+    }
+}
+
+/* PRODUCTOS */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Espaciado moderno entre productos */
+    padding: 20px;
+}
+
+/* CARD MINIMALISTA */
+.card {
+    background-color: #ffffff;
+    border-radius: 16px; /* Esquinas suaves */
+    width: 220px;
+    padding: 12px;
+    border: none; /* Elimina cualquier borde exterior */
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); /* Sombra muy sutil e imperceptible */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* EFECTO HOVER (Flotación elegante al pasar el mouse) */
+.card:hover {
+    transform: translateY(-8px); /* Eleva la tarjeta suavemente */
+    box-shadow: 0 12px 24px rgba(255, 79, 129, 0.18); /* Sombra suave teñida con el rosa de la marca */
+}
+
+/* IMAGENES LIMPIAS (Sin marcos internos) */
+.card img {
+    width: 100%; /* Ocupa el ancho total del interior */
+    height: 250px; /* Altura ideal para lucir la prenda */
+    object-fit: cover;
+    border-radius: 12px; /* Esquinas redondeadas sin borde rosa */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-bottom: 8px;
+    transition: transform 0.4s ease;
+}
+
+/* EFECTO ZOOM EN LA IMAGEN */
+.card:hover img {
+    transform: scale(1.04); /* Zoom delicado dentro de la tarjeta */
+}
+
+/* TITULO DE PRODUCTO */
+.card h2 {
+    font-size: 16px;
+    color: #2c2c2c;
+    margin: 8px 0 4px 0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}

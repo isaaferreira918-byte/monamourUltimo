@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+
+    <link rel="stylesheet" href="../CSS/producto.css">
+</head>
+
+<body>
+
+    <main class="producto">
+        <nav class="producto-breadcrumb" aria-label="Ruta de navegación">
+            <a href="index.html">Inicio</a>
+            <span aria-hidden="true">/</span>
+            <span id="categoria-producto">Productos</span>
+            <span aria-hidden="true">/</span>
+            <span id="breadcrumb-producto">Cargando...</span>
+        </nav>
+
+        <!-- Imagen del producto -->
+        <div class="imagen-producto">
+            <img id="img" src="" alt="Producto">
+        </div>
+
+        <div class="producto-info">
+            <h1 class="titulo" id="titulo">Cargando...</h1>
+            <div class="precio" id="precio">Cargando...</div>
+
+            <fieldset class="talle-selector" id="talle-selector" hidden>
+                <legend>Talle</legend>
+                <div class="talles-opciones" id="talles-opciones"></div>
+                <p class="talle-ayuda">Seleccioná el talle antes de agregar al carrito.</p>
+            </fieldset>
+
+            <section class="descripcion-producto" aria-labelledby="descripcion-titulo">
+                <h2 id="descripcion-titulo">Descripción</h2>
+                <div id="descripcion">Cargando descripción...</div>
+            </section>
+
+            <!-- Acciones de compra -->
+            <div class="acciones-producto">
+                <a class="btn" id="comprar" href="https://www.mercadopago.com.ar/" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+                <button class="btn" id="agregar-carrito" type="button">Agregar al carrito</button>
+            </div>
+            <p id="estado-carrito" role="status" aria-live="polite"></p>
+            <a class="volver-tienda" href="index.html">Volver a la tienda</a>
+        </div>
+    </main>
+
+    <script src="../JS/producto.js"></script>
+
+</body>
+
+</html>
